@@ -1,0 +1,18 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  min-height: 90vh;
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  border: 1px solid black;
+}
+
+.block {
+  border: 1px solid black;
+}
