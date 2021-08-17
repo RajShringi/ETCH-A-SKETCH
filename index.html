@@ -11,7 +11,7 @@
     <form class="grid-size-form">
       <label for="grid_size">
         <input id="grid_size" type="number" min="3" max="100" />
-        <button class="btn" type="submit">GRID SIZE</button>
+        <button class="btn btn-grid-size" type="submit">GRID SIZE</button>
       </label>
     </form>
     <div class="container"></div>
@@ -43,7 +43,14 @@
       createGrid(value);
     }
 
+    function mouseOver(e) {
+      if (e.target.classList.contains("block")) {
+        console.log(e.target);
+        e.target.classList.add("color");
+      }
+    }
     gridForm.addEventListener("submit", userCreatedGrid);
+    container.addEventListener("mouseover", mouseOver);
 
     createGrid(16);
   </script>
