@@ -8,16 +8,18 @@
     <title>ETCH-A-SKETCH</title>
   </head>
   <body>
+    <form class="grid-size-form">
+      <label for="grid_size">
+        <input id="grid_size" type="number" min="3" max="100" />
+        <button class="btn" type="submit">GRID SIZE</button>
+      </label>
+    </form>
     <div class="container"></div>
   </body>
   <script>
     const container = document.querySelector(".container");
-    // let n = 16;
-    // for (let i = 0; i < n * n; i++) {
-    //   let block = document.createElement("div");
-    //   block.classList.add("block");
-    //   container.appendChild(block);
-    // }
+    const gridForm = document.querySelector(".grid-size-form");
+
     function createGrid(n) {
       for (let i = 0; i < n * n; i++) {
         let block = document.createElement("div");
@@ -29,6 +31,20 @@
         `grid-template-columns: repeat(${n}, 1fr)`
       );
     }
+
+    function resetGrid() {
+      container.textContent = "";
+    }
+
+    function userCreatedGrid(e) {
+      e.preventDefault();
+      const value = document.querySelector("#grid_size").value;
+      resetGrid();
+      createGrid(value);
+    }
+
+    gridForm.addEventListener("submit", userCreatedGrid);
+
     createGrid(16);
   </script>
 </html>
