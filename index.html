@@ -10,15 +10,18 @@
   <body>
     <form class="grid-size-form">
       <label for="grid_size">
+        Enter the grid size:
         <input id="grid_size" type="number" min="3" max="100" />
         <button class="btn btn-grid-size" type="submit">GRID SIZE</button>
       </label>
     </form>
+    <button class="btn btn-reset">RESET</button>
     <div class="container"></div>
   </body>
   <script>
     const container = document.querySelector(".container");
     const gridForm = document.querySelector(".grid-size-form");
+    const reset = document.querySelector(".btn-reset");
 
     function createGrid(n) {
       for (let i = 0; i < n * n; i++) {
@@ -32,14 +35,16 @@
       );
     }
 
-    function resetGrid() {
+    function resetGrid(e) {
+      const value = document.querySelector("#grid_size").value || 16;
       container.textContent = "";
+      createGrid(value);
     }
 
     function userCreatedGrid(e) {
       e.preventDefault();
       const value = document.querySelector("#grid_size").value;
-      resetGrid();
+      container.textContent = "";
       createGrid(value);
     }
 
@@ -51,7 +56,7 @@
     }
     gridForm.addEventListener("submit", userCreatedGrid);
     container.addEventListener("mouseover", mouseOver);
-
+    reset.addEventListener("click", resetGrid);
     createGrid(16);
   </script>
 </html>
