@@ -13,7 +13,7 @@ This is a browser version of something between a sketchpad and Etch-A-Sketch.
 
 ## Overview
 
-- A webpage with a 16X16 grid of square. When use move mouse over grid, grid changes color, leaving a (pixelated) trail through grid like a pen would.
+- A webpage with a 16X16 grid of squares. When user moves mouse over the grid, the grid changes color, leaving a (pixelated) trail through the grid like a pen would.
 - User can change the size of grid. (min = 3, max = 100)
 
 ## Screenshot
